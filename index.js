@@ -14,6 +14,9 @@ if (true) {
             return window.opera.collect;
           }
         }
+        if (window.QueryInterface) {
+          window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindowUtils).garbageCollect();
+        }
       } else {
         if (global) {
           if (global.gc) {
