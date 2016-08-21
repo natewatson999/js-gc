@@ -1,6 +1,6 @@
 {
   "name": "js-gc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A platform-agnostic way to run a JS garbage collector.",
   "main": "index.js",
   "scripts": {

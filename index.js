@@ -25,6 +25,17 @@ if (true) {
         }
       }
     }
+    if (typeof require !== 'undefined') {
+      try {
+        var v8  = require("v8");
+        v8.setFlagsFromString("--expose-gc");
+      } catch (e) {}
+      if (global) {
+        if (global.gc) {
+          return global.gc;
+        }
+      }
+    }
     return function (){
       return;
     };
