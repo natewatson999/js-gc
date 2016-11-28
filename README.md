@@ -19,7 +19,7 @@ gc();
 
 ### In browser code
 ```
-<script src="link/to/js-gc/index.html"></script>
+<script src="link/to/js-gc/index.js"></script>
 <script>
 /*A massive memory intense task*/
 window.gc();

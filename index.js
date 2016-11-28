@@ -29,7 +29,11 @@ if (true) {
       try {
         var v8  = require("v8");
         v8.setFlagsFromString("--expose-gc");
-      } catch (e) {}
+      } catch (e) {
+        return function() {
+          return;
+        };
+      }
       if (global) {
         if (global.gc) {
           return global.gc;
