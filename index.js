@@ -1,13 +1,13 @@
 if (true) {
-  var AmInNode = false;
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    AmInNode = true;
-  }
-  var makeGC = function(){
-    if (AmInNode==false) {
+  const AmInNode = (typeof module !== 'undefined' && typeof module.exports !== 'undefined');
+  const makeGC = function(){
+    if (!(AmInNode)) {
       if (window) {
         if (window.CollectGarbage) {
           return window.CollectGarbage;
+        }
+        if (window.gc) {
+          return window.gc;
         }
         if (window.opera) {
           if (window.opera.collect) {
@@ -15,8 +15,13 @@ if (true) {
           }
         }
         if (window.QueryInterface) {
-          window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindowUtils).garbageCollect();
+          return window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindowUtils).garbageCollect;
         }
+	if (ProfilerAgent) {
+		if (ProfilerAgent.collectGarbage) {
+			return ProfilerAgent.collectGarbage;
+		}
+	}
       } else {
         if (global) {
           if (global.gc) {
@@ -27,7 +32,7 @@ if (true) {
     }
     if (typeof require !== 'undefined') {
       try {
-        var v8  = require("v8");
+        const v8  = require("v8");
         v8.setFlagsFromString("--expose-gc");
       } catch (e) {
         return function() {

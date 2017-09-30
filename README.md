@@ -29,8 +29,9 @@ window.gc();
 ## Supported Platforms
 js-gc doesn't work everywhere. It works on these platforms so far:
 * Opera 7+
-* IE 5+, with ActiveX controls enabled
-* Firefox, of versions I haven't figured out yet
+* IE 5+, with ActiveX controls enabled. "Edge may or may not be compatible."
+* cases where XPCOM is available "certain situations with Firefox and compatibles". By default, these are unsupported.
+* Chrome, but only when -js-flags="--expose-gc" is used.
 * Node.js, but only the V8 based versions, and only if global.gc is enabled.
 
 If an unsupported environment is encountered, the gc function will be a function that doesn't do anything.
