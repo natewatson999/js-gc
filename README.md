@@ -1,7 +1,7 @@
 # js-gc
 An API for Javascript to trigger the Garbage Collector
 
-##Background
+## Background
 js-gc is written for when there is memory-intensive code which needs to run on multiple platforms. In theory, the environment's garbage collector should run automatically. In practice, this isn't always true. Thankfully, most environments also provide a means to manually run the garbage collector. Sadly, there is not a standardized interface for this, so multi-platform support is convoluted. This API plans to make that problem less terrible.
 
 ## Installation
