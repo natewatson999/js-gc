@@ -73,7 +73,7 @@
 			}
 		}
 		if (typeof Java !=='undefined') {
-			if (java.type) {
+			if (Java.type) {
 				return Java.type('java.lang.System').gc;
 			}
 		}
